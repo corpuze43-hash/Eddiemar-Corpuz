@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            text-align:center;
+            padding:50px;
+        }
+
+        .calculator{
+            background:white;
+            width:400px;
+            margin:auto;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        input{
+            width:80%;
+            padding:10px;
+            margin:5px;
+        }
+
+        button{
+            padding:10px 15px;
+            margin:5px;
+            border:none;
+            border-radius:5px;
+            color:white;
+            background:#2196F3;
+            cursor:pointer;
+        }
+
+        .clear{
+            background:red;
+        }
+
+        .back{
+            background:green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+
+    <h1>Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="First Number">
+    <br>
+
+    <input type="number" id="num2" placeholder="Second Number">
+    <br><br>
+
+    <button onclick="add()">+ Add</button>
+    <button onclick="subtract()">- Subtract</button>
+    <button onclick="multiply()">× Multiply</button>
+    <button onclick="divide()">÷ Divide</button>
+    <button class="clear" onclick="clearFields()">Clear</button>
+
+    <br><br>
+
+    <input type="text" id="result" placeholder="Result" readonly>
+
+    <br><br>
+
+    <a href="index.html">
+        <button class="back">Back to Home</button>
+    </a>
+
+</div>
+
+<script>
+
+function add(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("result").value = a + b;
+}
+
+function subtract(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("result").value = a - b;
+}
+
+function multiply(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    document.getElementById("result").value = a * b;
+}
+
+function divide(){
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+
+    if(b == 0){
+        document.getElementById("result").value = "Cannot divide by zero";
+    } else {
+        document.getElementById("result").value = a / b;
+    }
+}
+
+function clearFields(){
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("result").value = "";
+}
+
+</script>
+
+</body>
+</html>
